@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.ui.theme" value="simple"></constant>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+  
+    
+    <package name="book" extends="struts-default">
+    	<!-- 可以配置全局结果集 -->
+		<global-results>
+			<result name="error">/adminstration/error404.jsp</result>
+			<result name="error2">/error.jsp</result>
+		</global-results>
+    
+    
+        <!-- class配置成spring中有关action类的对象id -->
+    	<action name="adminAction_*" class="adminAction" method="{1}">
+    		<result name="success" type="redirect">/adminstration/admin/main.jsp</result>
+    		<result name="reload">/adminstration/admin/main.jsp</result>
+    		<result name="logout">/adminstration/login.jsp</result>
+    		<result name="list">/adminstration/admin/superAdministrator.jsp</result>
+    		<result name="adminlist" type="redirectAction">adminAction_AdminList</result>
+    		<result name="edit">modifyAdministrator.jsp</result>
+    	</action>
+    	<!-- 用户管理 -->
+    	<action name="userAction_*" class="userAction" method="{1}">
+    		<!-- <result name="success" type="redirect">/index.jsp</result> -->
+    		<result name="list">/adminstration/admin/userList.jsp</result>
+    		<result name="userlist" type="redirectAction">userAction_UserList</result>
+    		<result name="reload">/login.jsp</result>
+    		<result name="login">/Index.jsp</result>
+    	</action>
+    	<!-- 分类管理之一级分类 -->
+    	<action name="itemAction_*" class="itemAction" method="{1}">
+	    	<result name="list">/adminstration/admin/itemList.jsp</result>
+	    	<result name="itemlist" type="redirectAction">itemAction_ItemList</result>
+	    	<result name="edit">/adminstration/admin/modifyItems.jsp</result>
+    	</action>
+    	
+    	<!-- 分类管理之二级分类 -->
+    	<action name="sitemAction_*" class="sitemAction" method="{1}">
+	    	<result name="list">/adminstration/admin/sitemList.jsp</result>
+	    	<result name="item">/adminstration/admin/addItems.jsp</result>
+	    	<result name="sitemlist" type="redirectAction">sitemAction_SItemList</result>
+	    	<result name="edit">/adminstration/admin/modifyItems.jsp</result>
+	    	<result name="menu">/header.jsp</result>
+    	</action>
+    	
+    	<!-- 图书管理 -->
+    	<action name="bookAction_*" class="bookAction" method="{1}">
+	    	<result name="selectmenus">/adminstration/admin/addBook.jsp</result>
+	    	<result name="list">/adminstration/admin/bookList.jsp</result>
+	    	<result name="booklist" type="redirectAction">bookAction_BookList</result>
+	    	<result name="edit">/adminstration/admin/modifyBook.jsp</result>
+	    	<result name="indexbooks">/body.jsp</result>
+	    	<result name="detailbook">/single.jsp</result>
+	    	<result name="subbooklist">/subbooks.jsp</result>
+    	</action>
+    	
+    	<!-- 购物车管理 -->
+    	<action name="cartAction_*" class="cartAction" method="{1}">
+	    	
+	    	<result name="success" type="redirectAction">cartAction_cartList</result>
+	    	<result name="list">/checkout.jsp</result>
+    	</action>
+    	
+    	<!-- 订单管理 -->
+    	<action name="orderAction_*" class="orderAction" method="{1}">
+	    	<result name="list">/adminstration/admin/orderHandle.jsp</result>
+	    	<result name="success">/adminstration/admin/orderList.jsp</result>
+	    	<result name="checkout">/checkout.jsp</result>
+	    	<result name="orderlist" type="redirectAction">orderAction_Orders</result>
+    	</action>
+    	
+    	<!-- 订单详情管理 -->
+    	<action name="orderListAction_*" class="ordeListAction" method="{1}">
+	    	
+    	</action>
+    	
+    	<!-- 评论管理 -->
+    	<action name="commentAction_*" class="commentAction" method="{1}">
+	    	<result name="list">/single.jsp</result>
+	    	<result name="success" type="redirectAction">commentAction_loadComment</result>
+    	</action>
+    </package>
+    
+    
+    
+</struts>

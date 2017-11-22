@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.Cart" table="t_cart" lazy="false">
+		<id name="cartid" column="cartid" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="count" type="int"/>
+		<!-- 订单与用户关联配置 -->
+		<many-to-one name="user" lazy="false" class="bookShopping.model.User" column="id" fetch="select"/>
+		<many-to-one name="book" lazy="false" class="bookShopping.model.Book" column="bid" fetch="select"/>
+		
+		
+	</class>
+
+
+</hibernate-mapping>

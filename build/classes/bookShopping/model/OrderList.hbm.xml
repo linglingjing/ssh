@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.OrderList" table="t_orderlist" lazy="false">
+		<id name="olistID" column="olistID" type="long">
+			<generator class="native"/>
+		</id>
+		
+		<many-to-one name="book" lazy="false" class="bookShopping.model.Book" column="bid" unique="true" cascade="delete"></many-to-one>
+		<many-to-one name="order" class="bookShopping.model.Order" column="oid" cascade="delete"></many-to-one>
+	</class>
+
+
+</hibernate-mapping>

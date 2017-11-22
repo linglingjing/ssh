@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.SItem" table="t_sitem" lazy="false">
+		<id name="sid" column="sid" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="sname" type="string"/>
+		
+		<!-- 二级分类与一级分类的guanlian -->
+		<many-to-one name="item" lazy="false" class="bookShopping.model.Item" column="cid" fetch="select"  not-found="ignore">
+		</many-to-one>
+		
+		<!-- 二级分类与书本的关联，根据二级分类获取图书集合 -->
+		<set name="books" order-by="bid" lazy="false" inverse="true" cascade="delete">
+			<key column="sid"/><!-- 在对方的外键 -->
+			<one-to-many class="bookShopping.model.Book"/>
+		</set>
+		
+	</class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.Item" table="t_item" lazy="false">
+		<id name="cid" column="cid" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="cname" type="string"/>
+		
+		<!-- 配置二级分类的集合 -->
+		<!-- inverse="true"表示不在自己这一方维护维护关系，这里是“一”方，不由“一”方维护 -->
+		<set order-by="sid" name="Sitems" lazy="false" inverse="true" cascade="delete">
+			<key column="cid"/><!-- key设置在对端的外键名称，及二级分类表中的外键是一级分类ID -->
+			<!-- 用来设置列表中的对象类型 -->
+			<one-to-many class="bookShopping.model.SItem"/>
+		</set>
+		
+	</class>
+
+
+</hibernate-mapping>

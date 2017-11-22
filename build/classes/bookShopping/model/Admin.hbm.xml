@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.Admin" table="t_admin" lazy="false">
+		<id name="id" column="id" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="adminName" type="string"/>
+		<property name="password" type="string"/>
+		<property name="registerDate" type="string"/>
+		<property name="limits" type="int"/>
+	</class>
+</hibernate-mapping>

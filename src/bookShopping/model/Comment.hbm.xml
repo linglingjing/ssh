@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.Comment" table="t_comment" lazy="false">
+		<id name="comId" column="comId" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="content" type="string" length="300"/>
+		
+		<many-to-one name="book" lazy="false" class="bookShopping.model.Book" column="bid"></many-to-one>
+		<many-to-one name="user" lazy="false" class="bookShopping.model.User" column="id" ></many-to-one>
+	</class>
+
+
+</hibernate-mapping>

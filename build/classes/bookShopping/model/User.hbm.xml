@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.User" table="t_user" lazy="false">
+		<id name="id" column="id" type="long">
+			<generator class="identity"/>
+		</id>
+		<property name="username" type="string"/>
+		<property name="password" type="string"/>
+		<property name="telephone" type="string"/>
+		
+		<set name="orders" cascade="delete">
+			<key column="id"/>
+			<one-to-many class="bookShopping.model.Order"/>
+		</set>
+	</class>
+
+
+</hibernate-mapping>

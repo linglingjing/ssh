@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//WebContent/adminstration/admin/body.jsp=UTF-8
+encoding//WebContent/adminstration/login.jsp=UTF-8
+encoding//src/bookShopping/dao/IBaseDao.java=UTF-8
+encoding//src/bookShopping/dao/imp/BaseDao.java=UTF-8
+encoding//src/bookShopping/tools/Pager.java=UTF-8
+encoding//src/bookShopping/tools/SystemContext.java=UTF-8

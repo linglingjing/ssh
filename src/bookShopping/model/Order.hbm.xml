@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping  >
+
+<!--   类和关系的映射文件 -->
+	<class name="bookShopping.model.Order" table="t_order" lazy="false">
+		<id name="oid" column="oid" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="state" type="integer"/>
+		<property name="totalPrice" type="double"/>
+		<property name="address" type="string"/>
+		<property name="orderTime" type="string"/>
+		<!-- 订单与用户关联配置 -->
+		<many-to-one name="user" lazy="false" class="bookShopping.model.User" column="id"/>
+		
+	</class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+.required{
+	color: red;
+	padding-left: 5px;
+}
+label.error{color: #b94a48;padding-top: 5px;}
+#success,#error,.sub_detail{display: none;}
+.submitBtn{margin-left: .8em;margin-right: 3em;}
+.operation a{padding-right:10px;cursor: pointer;}
+.operation a:hover,td.details-control:hover{text-decoration: none;color: #555;}
+.operation a>i{padding-left: 5px;font-size: 17px;}
+
+td.details-control {
+   
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    /*background: url('../img/slider/handlev.png') no-repeat center center;*/
+}
